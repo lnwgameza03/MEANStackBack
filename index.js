@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const user = require("./user/user.route")
 const post = require("./post/post.route")
+const replie = require("./reply/reply.route")
 const pathDB = "mongodb://admin:1234@ds133776.mlab.com:33776/webdb"
 
 const app = express()
@@ -28,6 +29,7 @@ mongoose.connect(pathDB , { useMongoClient: true }, err => {
 
     app.use("/users" , user)
     app.use("/posts" , post)
+    app.use("/replies" , replie)
     
     app.listen(9990 , () => {
         console.log("success")

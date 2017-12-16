@@ -8,4 +8,8 @@ router.post("/", replie.create )
 
 router.get("/", replie.getAll )
 
+router.get("/:topic", replie.getReply )
+
+router.get("/delete/:reply", replie.delete )
+
 module.exports = router;

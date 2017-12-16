@@ -18,3 +18,21 @@ exports.getAll = ((req , res , next) => {
         res.json(replie)
     })
 })
+
+exports.getReply = ((req , res , next) => {
+    Reply.find( {topic : req.params.topic},(err , replie) => {
+        if(err){
+            return next(err)
+        }
+        res.json(replie)
+    })
+})
+
+exports.delete = ((req , res , next) => {
+    Reply.findByIdAndRemove( {_id : req.params.reply},(err , replie) => {
+        if(err){
+            return next(err)
+        }
+        res.json(replie)
+    })
+})
